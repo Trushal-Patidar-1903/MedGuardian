@@ -1,0 +1,55 @@
+<!-- <p>dashboard works!</p> -->
+<!-- dashboard.component.html -->
+<div class="container mt-4">
+  <div class="text-center mb-4">
+    <h2 class="fw-bold text-primary">Welcome to MedGuardian Dashboard</h2>
+    <p class="text-muted">Your central control panel for managing hospital or user activities.</p>
+  </div>
+
+  <div class="row mb-4">
+    <div class="col-md-4">
+      <div class="card shadow-sm p-3">
+        <h5 class="card-title text-secondary">Your Profile</h5>
+        <div class="d-flex align-items-center mt-2">
+          <img [src]="user.profileImage || defaultImg" alt="Profile" class="rounded-circle me-3" width="60" height="60">
+          <div>
+            <h6 class="mb-0">{{ user.fullName }}</h6>
+            <p class="mb-0 small text-muted">{{ user.email }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <div class="row g-3">
+        <div class="col-md-4" *ngFor="let card of quickStats">
+          <div class="card border-0 shadow-sm h-100 bg-light text-center p-3">
+            <div class="text-primary mb-1">
+              <i class="bi" [ngClass]="card.icon" style="font-size: 2rem;"></i>
+            </div>
+            <h6 class="fw-bold">{{ card.title }}</h6>
+            <p class="text-muted small mb-0">{{ card.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+  <div class="col-md-8">
+    <div class="card shadow-sm p-4">
+      <h5 class="card-title text-secondary mb-3">Medical History Overview</h5>
+      <canvas baseChart
+        [data]="barChartData"
+        [options]="barChartOptions"
+        [type]="'bar'">
+      </canvas>
+    </div>
+  </div>
+</div>
+
+  <!-- Additional widgets can be added below -->
+  <button class="btn btn-outline-primary mt-4" [routerLink]="['/user/medical-history']">
+  + Add Medical History
+</button>
+</div>

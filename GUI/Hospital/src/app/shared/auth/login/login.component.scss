@@ -1,0 +1,18 @@
+.login-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.login-box {
+  width: 100%;
+  max-width: 400px;
+  background-color: #fff;
+}
+
+input.form-control {
+  border-radius: 0.5rem;
+}
+
+button.btn-primary {
+  border-radius: 0.5rem;
+}

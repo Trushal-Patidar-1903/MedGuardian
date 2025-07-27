@@ -1,0 +1,15 @@
+<!-- <p>module-selector works!</p> -->
+ <div class="selector-container">
+  <h1>Welcome to the Portal</h1>
+  <p>Please choose how you'd like to login:</p>
+
+  <div class="button-group">
+    <button class="login-button hospital" (click)="navigateToModule('/hospital/register')">
+      👩‍⚕️ Register as Hospital
+    </button>
+
+    <button class="login-button user" (click)="navigateToModule('/user/register')">
+      🙍‍♂️ Register as Individual User
+    </button>
+  </div>
+</div>

@@ -1,0 +1,195 @@
+<!-- <p>register works!</p> -->
+<!-- <div class="auth-container">
+  <h2>Register - {{ loginFor | titlecase }}</h2>
+
+  <form (ngSubmit)="onRegister()">
+    <input type="text" placeholder="Full Name" required />
+    <input type="email" placeholder="Email" required />
+    <input type="password" placeholder="Password" required />
+    <button type="submit">Register</button>
+  </form>
+
+  <p>
+    Already have an account?
+    <a [routerLink]="['/' + loginFor + '/login']">Login Here</a>
+  </p>
+</div> -->
+<!-- <div class="container register-container shadow p-4 mt-5 rounded bg-white">
+  <h2 class="text-center mb-4 text-primary">Register - {{ loginFor | titlecase }}</h2>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="row g-4">
+      <div class="col-md-6">
+        <label class="form-label">First Name</label>
+        <input type="text" class="form-control" formControlName="firstName" placeholder="Enter your first name" />
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Last Name</label>
+        <input type="text" class="form-control" formControlName="lastName" placeholder="Enter your last name" />
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Date of Birth</label>
+        <input type="date" class="form-control" formControlName="dateOfBirth" />
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Gender</label>
+        <select class="form-select" formControlName="idGender">
+          <option value="" disabled>Select Gender</option>
+          <option *ngFor="let gender of genderList" [value]="gender.id">{{ gender.name }}</option>
+        </select>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">User Type</label>
+        <select class="form-select" formControlName="idUserType">
+          <option value="" disabled>Select User Type</option>
+          <option *ngFor="let userType of userTypeList" [value]="userType.id">{{ userType.name }}</option>
+        </select>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Mobile</label>
+        <input type="text" class="form-control" formControlName="mobile" placeholder="Enter your 10-digit mobile number" />
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" formControlName="email" placeholder="Enter your email address" />
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" formControlName="password" placeholder="Choose a secure password" />
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Upload Profile Image</label>
+        <input type="file" (change)="onFileChange($event, 'profile')" class="form-control" />
+        <img *ngIf="profileImageUrl" [src]="profileImageUrl" class="img-thumbnail mt-2" height="80" />
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Upload QR Code</label>
+        <input type="file" (change)="onFileChange($event, 'qr')" class="form-control" />
+        <img *ngIf="qrCodeUrl" [src]="qrCodeUrl" class="img-thumbnail mt-2" height="80" />
+      </div>
+    </div>
+
+    <button class="btn btn-primary w-100 mt-4" type="submit" [disabled]="registerForm.invalid">
+      Register
+    </button>
+  </form>
+
+  <p class="text-center mt-3">
+    Already have an account?
+    <a [routerLink]="['/login']">Login Here</a>
+  </p>
+</div> -->
+
+<div class="container register-container shadow p-4 mt-5 rounded bg-white">
+  <h2 class="text-center mb-4">Register - {{ loginFor | titlecase }}</h2>
+
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="row g-3">
+      <!-- Common Fields -->
+       <ng-container *ngIf="loginFor === 'user'">
+      <div class="col-md-6">
+        <label>First Name</label>
+        <input type="text" class="form-control" formControlName="firstName" />
+      </div>
+      <div class="col-md-6">
+        <label>Last Name</label>
+        <input type="text" class="form-control" formControlName="lastName" />
+      </div>
+
+      <div class="col-md-6">
+        <label>Date of Birth</label>
+        <input type="date" class="form-control" formControlName="dateOfBirth" />
+      </div>
+      <div class="col-md-6">
+        <label>Gender</label>
+        <select class="form-control" formControlName="idGender">
+          <option *ngFor="let gender of genderList" [value]="gender.id">{{ gender.name }}</option>
+        </select>
+      </div>
+      </ng-container>
+
+      <div class="col-md-6">
+        <label>User Type</label>
+        <select class="form-control" formControlName="idUserType">
+          <option *ngFor="let type of userTypeList" [value]="type.id">{{ type.name }}</option>
+        </select>
+      </div>
+
+      <div class="col-md-6">
+        <label>Mobile</label>
+        <input type="text" class="form-control" formControlName="mobile" />
+      </div>
+
+      <div class="col-md-6">
+        <label>Email</label>
+        <input type="email" class="form-control" formControlName="email" />
+      </div>
+      <div class="col-md-6">
+        <label>Password</label>
+        <input type="password" class="form-control" formControlName="password" />
+      </div>
+
+      <!-- Conditional: Hospital Fields -->
+      <ng-container *ngIf="loginFor === 'hospital'">
+        <div class="col-md-6">
+          <label>Hospital Name</label>
+          <input type="text" class="form-control" formControlName="hospitalName" />
+        </div>
+        <div class="col-md-6">
+          <label>Hospital Type</label>
+          <select class="form-control" formControlName="hospitalTypeId">
+            <option *ngFor="let htype of hospitalTypeList" [value]="htype.id">{{ htype.name }}</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label>State</label>
+          <select class="form-control" formControlName="stateId">
+            <option *ngFor="let state of stateList" [value]="state.id">{{ state.name }}</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label>City</label>
+          <select class="form-control" formControlName="cityId">
+            <option *ngFor="let city of cityList" [value]="city.id">{{ city.name }}</option>
+          </select>
+        </div>
+
+        <div class="col-12">
+          <label>Address</label>
+          <textarea class="form-control" rows="2" formControlName="address"></textarea>
+        </div>
+      </ng-container>
+
+      <!-- File Uploads -->
+      <div class="col-md-6">
+        <label>Upload Profile Image</label>
+        <input type="file" class="form-control" (change)="onFileChange($event, 'profile')" />
+        <img *ngIf="profileImageUrl" [src]="profileImageUrl" class="img-thumbnail mt-2" height="80" />
+      </div>
+
+      <!-- <div class="col-md-6">
+        <label>Upload QR Code</label>
+        <input type="file" class="form-control" (change)="onFileChange($event, 'qr')" />
+        <img *ngIf="qrCodeUrl" [src]="qrCodeUrl" class="img-thumbnail mt-2" height="80" />
+      </div> -->
+    </div>
+
+    <button type="submit" class="btn btn-success w-100 mt-4" [disabled]="registerForm.invalid">Register</button>
+
+    <p class="text-center mt-3">
+      Already have an account? <a [routerLink]="['/login']">Login Here</a>
+    </p>
+  </form>
+</div>
+

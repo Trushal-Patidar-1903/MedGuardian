@@ -1,0 +1,27 @@
+<!-- <p>home works!</p> -->
+<div class="home-container">
+  <div class="hero-section">
+    <h1>Welcome to MedGuardian</h1>
+    <p>Your trusted partner in health and care.</p>
+    <button class="primary-btn" (click)="navigateToLogin()">Get Started</button>
+  </div>
+
+  <div class="nav-links">
+    <button (click)="scrollTo('help')">Help</button>
+    <button (click)="scrollTo('contact')">Contact</button>
+    <button (click)="navigateToLogin()">Login</button>
+  </div>
+
+  <div id="help" class="section">
+    <h2>Help & Support</h2>
+    <p>Find answers to common questions or contact our support team.</p>
+  </div>
+
+  <div id="contact" class="section">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:support@medguardian.com">support&#64;medguardian.com</a> | 
+     Phone: <a href="tel:+919999988888">+91-99999-88888</a></p>
+  </div>
+
+  <!-- <app-footer></app-footer> -->
+</div>

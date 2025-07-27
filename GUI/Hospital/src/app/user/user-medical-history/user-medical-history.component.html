@@ -1,0 +1,137 @@
+<!-- <div class="container mt-4">
+  <h3 class="text-primary mb-4">Add Medical History</h3>
+
+  <form [formGroup]="historyForm" (ngSubmit)="onSubmit()">
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label class="form-label">Condition</label>
+        <input formControlName="condition" class="form-control" placeholder="e.g. Diabetes" />
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Medication</label>
+        <input formControlName="medication" class="form-control" placeholder="e.g. Metformin" />
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Allergy</label>
+        <input formControlName="allergy" class="form-control" placeholder="e.g. Penicillin" />
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Notes</label>
+        <textarea formControlName="notes" class="form-control" rows="2" placeholder="Optional notes"></textarea>
+      </div>
+
+      <div class="col-md-4">
+        <label class="form-label">Blood Group</label>
+        <select formControlName="bloodGroup" class="form-select">
+          <option value="">Select</option>
+          <option *ngFor="let bg of bloodGroups" [value]="bg">{{ bg }}</option>
+        </select>
+      </div>
+
+      <div class="col-md-4">
+        <label class="form-label">Age</label>
+        <input type="number" formControlName="age" class="form-control" min="0" placeholder="e.g. 30" />
+      </div>
+
+      <div class="col-md-4">
+        <label class="form-label">Weight (kg)</label>
+        <input type="number" formControlName="weight" class="form-control" min="0" placeholder="e.g. 65" />
+      </div>
+
+      <div class="col-md-4">
+        <label class="form-label">Height (cm)</label>
+        <input type="number" formControlName="height" class="form-control" min="0" placeholder="e.g. 170" />
+      </div>
+    </div>
+
+    <div class="mt-4">
+      <button type="submit" class="btn btn-primary" [disabled]="!historyForm.valid">Submit</button>
+    </div>
+  </form>
+</div>
+
+ -->
+<div class="container mt-5 mb-5 p-4 shadow rounded bg-light">
+  <h2 class="text-center text-primary mb-4">Add Medical History</h2>
+
+  <form [formGroup]="medicalHistoryForm" (ngSubmit)="submitForm()">
+    <div class="row g-3 mb-4">
+      <div class="col-md-3">
+        <label for="bloodGroup" class="form-label">Blood Group</label>
+        <select formControlName="idBloodGroup" id="bloodGroup" class="form-select">
+          <option value="">Select</option>
+          <option *ngFor="let group of bloodGroups" [value]="group.id">{{ group.name }}</option>
+        </select>
+      </div>
+
+      <div class="col-md-3">
+        <label for="age" class="form-label">Age</label>
+        <input type="number" formControlName="age" id="age" class="form-control" placeholder="Enter age">
+      </div>
+
+      <div class="col-md-3">
+        <label for="weight" class="form-label">Weight (kg)</label>
+        <input type="number" formControlName="weight" id="weight" class="form-control" placeholder="Enter weight">
+      </div>
+
+      <div class="col-md-3">
+        <label for="height" class="form-label">Height (cm)</label>
+        <input type="number" formControlName="height" id="height" class="form-control" placeholder="Enter height">
+      </div>
+    </div>
+
+    <!-- Emergency Contacts -->
+    <div class="mt-4">
+      <h5 class="text-secondary">Emergency Contacts</h5>
+      <div formArrayName="userContacts" class="row g-3 mb-2">
+        <div *ngFor="let contact of userContacts.controls; let i=index" [formGroupName]="i" class="col-md-6">
+          <div class="input-group">
+            <input type="text" formControlName="contactNo" class="form-control" placeholder="Contact No">
+            <input type="text" formControlName="idRelationType" class="form-control" placeholder="Relation Type ID">
+          </div>
+        </div>
+      </div>
+      <button type="button" (click)="addContact()" class="btn btn-sm btn-outline-primary mb-3">+ Add Contact</button>
+    </div>
+
+    <!-- Allergies -->
+    <div class="mt-4">
+      <h5 class="text-secondary">Allergies</h5>
+      <div formArrayName="allergies">
+        <div *ngFor="let allergy of allergies.controls; let i=index" [formGroupName]="i" class="mb-2">
+          <input formControlName="allergy" class="form-control" placeholder="Enter allergy">
+        </div>
+      </div>
+      <button type="button" (click)="addAllergy()" class="btn btn-sm btn-outline-primary mt-2">+ Add Allergy</button>
+    </div>
+
+    <!-- Surgical History -->
+    <div class="mt-4">
+      <h5 class="text-secondary">Surgical History</h5>
+      <div formArrayName="surgicalHistories">
+        <div *ngFor="let surgery of surgicalHistories.controls; let i=index" [formGroupName]="i" class="mb-2">
+          <input formControlName="surgery" class="form-control" placeholder="Enter surgery">
+        </div>
+      </div>
+      <button type="button" (click)="addSurgery()" class="btn btn-sm btn-outline-primary mt-2">+ Add Surgery</button>
+    </div>
+
+    <!-- Medical Conditions -->
+    <div class="mt-4">
+      <h5 class="text-secondary">Medical Conditions</h5>
+      <div formArrayName="medicalHistories">
+        <div *ngFor="let condition of medicalHistories.controls; let i=index" [formGroupName]="i" class="mb-2">
+          <input formControlName="condition" class="form-control" placeholder="Enter condition">
+        </div>
+      </div>
+      <button type="button" (click)="addCondition()" class="btn btn-sm btn-outline-primary mt-2">+ Add Condition</button>
+    </div>
+
+    <div class="text-center mt-4">
+      <button type="submit" class="btn btn-primary px-4 py-2">Submit Medical History</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,10 @@
+
+
+<app-datatable
+[tableTitle]="'User List'"
+[columns]="columns"
+[data]="data"
+[pageSize]="5"
+(onEdit)="handleEdit($event)"
+(onUpdate)="handleUpdate($event)"
+(onDelete)="handleDelete($event)"></app-datatable>

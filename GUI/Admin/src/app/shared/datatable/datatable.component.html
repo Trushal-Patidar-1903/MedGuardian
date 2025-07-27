@@ -1,0 +1,61 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">{{ tableTitle }}</h5>
+</div>
+
+
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th *ngFor="let col of columns">{{ col.header }}</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf="paginatedData.length === 0">
+                <td [attr.colspan]="columns.length + 1" class="text-center">No data found</td>
+            </tr>
+
+            <tr *ngFor="let row of paginatedData">
+                <td *ngFor="let col of columns">
+                    <ng-container *ngIf="editingRow === row; else viewMode">
+                        <input class="form-control form-control-sm" [(ngModel)]="editedRow[col.field]"
+                            [placeholder]="col.header" />
+                    </ng-container>
+                    <ng-template #viewMode>
+                        {{ row[col.field] }}
+                    </ng-template>
+                </td>
+
+                <td>
+                    <ng-container *ngIf="editingRow === row; else actionButtons">
+                        <button class="btn btn-success btn-sm me-1" (click)="updateRow()">Save</button>
+                        <button class="btn btn-secondary btn-sm" (click)="cancelEdit()">Cancel</button>
+                    </ng-container>
+                    <ng-template #actionButtons>
+                        <button class="btn btn-primary btn-sm me-1" (click)="editRow(row)">Edit</button>
+                        <button class="btn btn-danger btn-sm" (click)="deleteRow(row)">Delete</button>
+                    </ng-template>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Pagination -->
+<nav *ngIf="totalPages > 1" class="mt-2">
+    <ul class="pagination justify-content-center">
+        <li class="page-item" [class.disabled]="currentPage === 1">
+            <button class="page-link" (click)="changePage(currentPage - 1)">Previous</button>
+        </li>
+
+        <li class="page-item" *ngFor="let page of [].constructor(totalPages); let i = index"
+            [class.active]="currentPage === i + 1">
+            <button class="page-link" (click)="changePage(i + 1)">{{ i + 1 }}</button>
+        </li>
+
+        <li class="page-item" [class.disabled]="currentPage === totalPages">
+            <button class="page-link" (click)="changePage(currentPage + 1)">Next</button>
+        </li>
+    </ul>
+</nav>

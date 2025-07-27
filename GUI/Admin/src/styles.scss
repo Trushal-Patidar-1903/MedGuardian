@@ -1,0 +1,112 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+.form-check {
+    position: relative;
+    text-align: left
+        /*rtl: right*/;
+
+    .form-check-input {
+        cursor: pointer;
+    }
+
+    label {
+        cursor: pointer;
+    }
+}
+
+.table {
+ .form-check {
+     padding-left: 0px;
+     margin-bottom: 0px;
+     .form-check-input {
+         margin-left: 0px;
+         margin-top: 0px;
+         float: none;
+         vertical-align: middle;
+     }
+ }
+ .sort {
+     position: relative;
+     cursor: pointer;
+     user-select: none;
+     -webkit-user-select: none;
+     &.sort::after {
+         content: "";
+         display: inline-block;
+         background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAmxJREFUeAHtmksrRVEUx72fH8CIGQNJkpGUUmakDEiZSJRIZsRQmCkTJRmZmJgQE0kpX0D5DJKJgff7v+ru2u3O3vvc67TOvsdatdrnnP1Y///v7HvvubdbUiIhBISAEBACQkAICAEhIAQ4CXSh2DnyDfmCPEG2Iv9F9MPlM/LHyAecdyMzHYNwR3fdNK/OH9HXl1UCozD24TCvILxizEDWIEzA0FcM8woCgRrJCoS5PIwrANQSMAJX1LEI9bqpQo4JYNFFKRSvIgsxHDVnqZgIkPnNBM0rIGtYk9YOOsqgbgepRCfdbmFtqhFkVEDVPjJp0+Z6e6hRHhqBKgg6ZDCvYBygVmUoEGoh5JTRvIJwhJo1aUOoh4CLPMyvxxi7EWOMgnCGsXXI1GIXlZUYX7ucU+kbR8NW8lh3O7cue0Pk32MKndfUxQFAwxdirk3fHappAnc0oqDPzDfGTBrCfHP04dM4oTV8cxr0SVzH9FF07xD3ib6xCDE+M+aUcVygtWzzbtGX2rPBrEUYfecfQkaFzYi6HjVnGBdtL7epqAlc1+jRdAap74RrnPc4BCijttY2tRcdN0g17w7HqZrXhdJTYAuS3hd8z+vKgK3V1zWPae0mZDMykadBn1hTQBLnZNwVrJpSe/NwEeDsEwCctEOsJTsgxLvCqUl2ACftEGvJDgjxrnBqkh3ASTvEWrIDQrwrnJpkB3DSDrGW7IAQ7wqnJtkBnLRztejXXVu4+mxz/nQ9jR1w5VB86ejLTFcnnDwhzV+F6T+CHZlx6THSjn76eyyBIOPHyDakhBAQAkJACAgBISAEhIAQYCLwC8JxpAmsEGt6AAAAAElFTkSuQmCC")
+         no-repeat;
+         background-size: 16px;
+         width: 16px;
+         height: 16px;
+         margin-left: 0px;
+         margin-bottom: -3px;
+         opacity: 0.4;
+         visibility: hidden;
+     }
+     .sorting-menu {
+         right: 0;
+         position: absolute;
+         align-items: center;
+         visibility: hidden;
+     }
+     &.sort:hover::after {
+         visibility: visible;
+     }
+     &.sort:hover {
+         .sorting-menu {
+             visibility: visible;
+         }
+     }
+     &.sort {
+         &.desc,
+         &.asc {
+             .sorting-menu {                    
+                 visibility: visible;
+             }
+         }
+     }
+     &.desc:after,
+     &.asc:after {
+         visibility: visible;
+     }
+     &.desc::after {
+         transform: rotate(180deg);
+         -ms-transform: rotate(180deg);
+     }
+    
+     // &::before {
+     //     content: "\f035d";
+     //     position: absolute;
+     //     right: 0.5rem;
+     //     top: 9px;
+     //     font-size: 1.3rem;
+     //     font-family: "Material Design Icons";
+     // }
+     // &::after {
+     //     position:absolute;
+     //     right: 0.5rem;
+     //     content: "\f0360";
+     //     font-family: "Material Design Icons";
+     //     font-size: 1.3rem;
+     //     top: 2px;
+     // }
+     // &.asc{
+     //     &::before {
+     //         opacity: 0.6;
+     //     }
+     //     &::after {
+     //         opacity: 1;
+     //     }
+     // }
+     // &.desc {
+     //     &::after{
+     //         opacity: 0.6;
+     //     }
+     //     &::before {
+     //         opacity: 1;
+     //     }
+     // }
+ }
+
+}
