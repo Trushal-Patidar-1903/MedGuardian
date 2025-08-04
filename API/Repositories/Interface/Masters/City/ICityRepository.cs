@@ -1,10 +1,5 @@
 ﻿using DTO.Common.Response;
 using DTO.Masters.City.Response;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Repositories.Interface.Masters.City
 {

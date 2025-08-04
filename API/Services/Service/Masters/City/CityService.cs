@@ -1,13 +1,7 @@
 ﻿using DTO.Common.Response;
 using DTO.Masters.City.Response;
-using Repositories.Interface.Masters.BloodGroup;
 using Repositories.Interface.Masters.City;
 using Services.Interface.Masters.City;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Services.Service.Masters.City
 {

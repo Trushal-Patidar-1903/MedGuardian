@@ -1,12 +1,9 @@
 ﻿using DTO.Common.Response;
 using DTO.User.RequestModel;
 using DTO.User.ResponseModel;
-using Helper.SharedResource.Interface.Jwt;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Services.Interface.User;
-using Services.Service.User;
 
 namespace MedGuardianWebApi.Controllers.User
 {

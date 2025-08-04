@@ -10,6 +10,11 @@ builder.Services.Configure<FileStorageSettings>(
     builder.Configuration.GetSection("FileStorageSettings")
 );
 
+// Bind DebugLogSettings
+builder.Services.Configure<DebugLogSettings>(
+    builder.Configuration.GetSection("DebugLogSettings") // Assuming "DebugLogSettings" section for DebugLogService's BasePath
+);
+
 // Add services to the container.
 Repositories.Register.RepositoryRegister.AddRepository(builder.Services);
 Services.Register.ServiceRegister.AddService(builder.Services);

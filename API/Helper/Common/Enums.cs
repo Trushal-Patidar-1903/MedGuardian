@@ -2,6 +2,11 @@
 {
     public class Enums
     {
+        public enum ProjectName
+        {
+            MedGuardian = 0,
+        }
+
         public enum ResponseStatus
         {
             Fail = 0,

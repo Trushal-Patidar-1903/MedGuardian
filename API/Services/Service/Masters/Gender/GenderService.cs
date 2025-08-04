@@ -3,7 +3,7 @@ using DTO.Masters.Gender.Response;
 using Repositories.Interface.Masters.Gender;
 using Services.Interface.Masters.Gender;
 
-namespace Services.Service.Gender
+namespace Services.Service.Masters.Gender
 {
     public class GenderService : IGenderService
     {

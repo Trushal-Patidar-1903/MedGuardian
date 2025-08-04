@@ -5,10 +5,10 @@ using Services.Interface.Masters.Country;
 using Services.Interface.Masters.Gender;
 using Services.Interface.Masters.State;
 using Services.Interface.User;
-using Services.Service.BloodGroup;
-using Services.Service.Gender;
+using Services.Service.Masters.BloodGroup;
 using Services.Service.Masters.City;
 using Services.Service.Masters.Country;
+using Services.Service.Masters.Gender;
 using Services.Service.Masters.State;
 using Services.Service.User;
 

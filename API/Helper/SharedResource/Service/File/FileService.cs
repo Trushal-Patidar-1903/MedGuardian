@@ -1,14 +1,10 @@
-﻿using Microsoft.Extensions.Options; // To read configuration
-using System.IO;                  // For file operations
-using Microsoft.AspNetCore.Http;
-using QRCoder;
-using System.Text.Json;
-using System;
-using System.Threading.Tasks;
-
+﻿using DTO.Common.Request;
 // Assuming this is the correct interface path
 using Helper.SharedResource.Interface.File;
-using DTO.Common.Request;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Options; // To read configuration
+using QRCoder;
+using System.Text.Json;
 
 namespace Helper.SharedResource.Service.File
 {

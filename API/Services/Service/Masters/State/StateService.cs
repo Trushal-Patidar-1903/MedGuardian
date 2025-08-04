@@ -2,11 +2,6 @@
 using DTO.Masters.State.Response;
 using Repositories.Interface.Masters.State;
 using Services.Interface.Masters.State;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Services.Service.Masters.State
 {

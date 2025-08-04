@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Http;
-using System.ComponentModel.DataAnnotations;
 
 namespace DTO.User.RequestModel
 {

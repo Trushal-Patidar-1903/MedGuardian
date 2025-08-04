@@ -1,6 +1,6 @@
 ﻿namespace DTO.Common.Request
 {
-    public class FileStorageSettings
+    public class DebugLogSettings
     {
         public string? basePath { get; set; }
     }

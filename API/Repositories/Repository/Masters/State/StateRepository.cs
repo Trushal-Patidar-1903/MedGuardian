@@ -7,12 +7,7 @@ using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Repositories.Interface.Common.Sql;
 using Repositories.Interface.Masters.State;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Repositories.Repository.Masters.State
 {

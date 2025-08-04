@@ -3,7 +3,7 @@ using DTO.Masters.BloodGroup.Response;
 using Repositories.Interface.Masters.BloodGroup;
 using Services.Interface.Masters.BloodGroup;
 
-namespace Services.Service.BloodGroup
+namespace Services.Service.Masters.BloodGroup
 {
     public class BloodGroupService : IBloodGroupService
     {

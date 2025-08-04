@@ -1,9 +1,7 @@
 ﻿using DTO.Common.Response;
 using DTO.Masters.Country.Response;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Services.Interface.Masters.City;
 using Services.Interface.Masters.Country;
 
 namespace MedGuardianWebApi.Controllers.Masters.Country

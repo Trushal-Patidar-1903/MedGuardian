@@ -1,9 +1,7 @@
 ﻿using DTO.Common.Response;
 using DTO.Masters.City.Response;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Services.Interface.Masters.BloodGroup;
 using Services.Interface.Masters.City;
 
 namespace MedGuardianWebApi.Controllers.Masters.City
